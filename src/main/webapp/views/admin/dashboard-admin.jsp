@@ -55,6 +55,14 @@ href="${pageContext.request.contextPath}/assets/css/style.css">
             Bienvenido a NexusPC
         </p>
 
+        <h3>JWT</h3>
+
+        <textarea rows="8"
+                  cols="90">
+
+        ${sessionScope.jwt}
+
+        </textarea>
     </div>
 
 </div>

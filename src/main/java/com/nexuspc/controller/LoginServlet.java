@@ -2,7 +2,7 @@ package com.nexuspc.controller;
 
 import com.nexuspc.model.User;
 import com.nexuspc.service.AuthService;
-
+import com.nexuspc.util.JwtUtil;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
@@ -44,6 +44,16 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session =
                 request.getSession();
+        String token =
+                JwtUtil.generateToken(
+                        user.getUsuario(),
+                        user.getRole().getNombre()
+                );
+
+        session.setAttribute(
+                "jwt",
+                token
+        );
 
         session.setAttribute(
                 "user",
