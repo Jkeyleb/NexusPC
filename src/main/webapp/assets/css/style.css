@@ -1,0 +1,50 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#f5f6fa;
+}
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:#1e293b;
+    position:fixed;
+    left:0;
+    top:0;
+    color:white;
+}
+
+.logo{
+    text-align:center;
+    padding:30px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.menu a{
+    display:block;
+    padding:15px 25px;
+    color:white;
+    text-decoration:none;
+}
+
+.menu a:hover{
+    background:#334155;
+}
+
+.main{
+    margin-left:260px;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
