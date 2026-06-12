@@ -1,0 +1,40 @@
+package com.nexuspc.service;
+
+import com.nexuspc.dao.ProductoDAO;
+import com.nexuspc.dao.impl.ProductoDAOImpl;
+import com.nexuspc.model.Producto;
+
+import java.util.List;
+
+public class ProductoService {
+
+    private final ProductoDAO dao =
+            new ProductoDAOImpl();
+
+    public boolean guardar(
+            Producto producto){
+
+        return dao.guardar(producto);
+    }
+
+    public List<Producto> listar(){
+
+        return dao.listar();
+    }
+
+    public Producto buscarPorId(int id){
+
+        return dao.buscarPorId(id);
+    }
+
+    public boolean actualizar(
+            Producto producto){
+
+        return dao.actualizar(producto);
+    }
+
+    public boolean eliminar(int id){
+
+        return dao.eliminar(id);
+    }
+}

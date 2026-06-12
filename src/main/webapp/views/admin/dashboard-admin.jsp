@@ -23,7 +23,9 @@ href="${pageContext.request.contextPath}/assets/css/style.css">
 
         <a href="#">Dashboard</a>
 
-        <a href="#">Inventario</a>
+        <a href="${pageContext.request.contextPath}/inventario">
+            Inventario
+        </a>
 
         <a href="#">Clientes</a>
 
