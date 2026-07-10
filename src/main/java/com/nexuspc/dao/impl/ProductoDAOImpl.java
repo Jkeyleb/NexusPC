@@ -262,4 +262,102 @@ public class ProductoDAOImpl implements ProductoDAO {
 
         return false;
     }
+
+    @Override
+    public int contarProductos() {
+
+        String sql =
+                "SELECT COUNT(*) FROM productos";
+
+        try(
+                Connection conn =
+                        DBConnection.getConnection();
+
+                Statement st =
+                        conn.createStatement();
+
+                ResultSet rs =
+                        st.executeQuery(sql)
+        ){
+
+            if(rs.next()){
+
+                return rs.getInt(1);
+            }
+
+        }catch(Exception ex){
+
+            ex.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    @Override
+    public int contarStockBajo() {
+
+        String sql =
+                """
+                SELECT COUNT(*)
+                FROM productos
+                WHERE stock <= stock_minimo
+                """;
+
+        try(
+                Connection conn =
+                        DBConnection.getConnection();
+
+                Statement st =
+                        conn.createStatement();
+
+                ResultSet rs =
+                        st.executeQuery(sql)
+        ){
+
+            if(rs.next()){
+
+                return rs.getInt(1);
+            }
+
+        }catch(Exception ex){
+
+            ex.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    @Override
+    public double calcularValorInventario() {
+
+        String sql =
+                """
+                SELECT SUM(precio * stock)
+                FROM productos
+                """;
+
+        try(
+                Connection conn =
+                        DBConnection.getConnection();
+
+                Statement st =
+                        conn.createStatement();
+
+                ResultSet rs =
+                        st.executeQuery(sql)
+        ){
+
+            if(rs.next()){
+
+                return rs.getDouble(1);
+            }
+
+        }catch(Exception ex){
+
+            ex.printStackTrace();
+        }
+
+        return 0;
+    }
+
 }

@@ -37,4 +37,19 @@ public class ProductoService {
 
         return dao.eliminar(id);
     }
+
+    public int contarProductos(){
+
+        return dao.contarProductos();
+    }
+
+    public int contarStockBajo(){
+
+        return dao.contarStockBajo();
+    }
+
+    public double calcularValorInventario(){
+
+        return dao.calcularValorInventario();
+    }
 }

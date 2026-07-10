@@ -14,4 +14,10 @@ public interface ProductoDAO {
     boolean actualizar(Producto producto);
 
     boolean eliminar(int id);
+
+    int contarProductos();
+
+    int contarStockBajo();
+
+    double calcularValorInventario();
 }

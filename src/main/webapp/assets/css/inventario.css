@@ -1,0 +1,32 @@
+body{
+    background:#f4f6f9;
+}
+
+.kpi-card{
+    border:none;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.kpi-card:hover{
+    transform:translateY(-4px);
+}
+
+.table{
+    background:white;
+}
+
+.stock-ok{
+    color:#198754;
+    font-weight:bold;
+}
+
+.stock-low{
+    color:#dc3545;
+    font-weight:bold;
+}
+
+.btn{
+    border-radius:10px;
+}

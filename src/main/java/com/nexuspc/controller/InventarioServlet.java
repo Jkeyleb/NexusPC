@@ -26,6 +26,18 @@ public class InventarioServlet extends HttpServlet {
                 service.listar()
         );
 
+        request.setAttribute(
+                "totalProductos",
+                service.contarProductos());
+
+        request.setAttribute(
+                "stockBajo",
+                service.contarStockBajo());
+
+        request.setAttribute(
+                "valorInventario",
+                service.calcularValorInventario());
+
         request.getRequestDispatcher(
                 "/views/admin/lista-productos.jsp"
         ).forward(
