@@ -9,6 +9,10 @@ public interface ProductoDAO {
 
     List<Producto> listar();
 
+    List<Producto> buscar(String texto);
+
+    List<Producto> ultimosProductos();
+
     Producto buscarPorId(int id);
 
     boolean actualizar(Producto producto);

@@ -52,4 +52,16 @@ public class ProductoService {
 
         return dao.calcularValorInventario();
     }
+
+    public List<Producto> buscar(String texto){
+
+        return dao.buscar(texto);
+
+    }
+
+    public List<Producto> ultimosProductos(){
+
+        return dao.ultimosProductos();
+
+    }
 }

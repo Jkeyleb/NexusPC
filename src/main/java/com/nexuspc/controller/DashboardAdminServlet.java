@@ -2,14 +2,14 @@ package com.nexuspc.controller;
 
 import com.nexuspc.service.ProductoService;
 
-import jakarta.servlet.*;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet("/inventario")
-public class InventarioServlet extends HttpServlet {
+@WebServlet("/dashboard-admin")
+public class DashboardAdminServlet extends HttpServlet {
 
     private final ProductoService service =
             new ProductoService();
@@ -18,21 +18,6 @@ public class InventarioServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response)
             throws ServletException, IOException {
-
-        String buscar = request.getParameter("buscar");
-
-        if (buscar != null && !buscar.trim().isEmpty()) {
-
-            request.setAttribute(
-                    "productos",
-                    service.buscar(buscar));
-
-        } else {
-
-            request.setAttribute(
-                    "productos",
-                    service.listar());
-        }
 
         request.setAttribute(
                 "totalProductos",
@@ -46,8 +31,13 @@ public class InventarioServlet extends HttpServlet {
                 "valorInventario",
                 service.calcularValorInventario());
 
+        request.setAttribute(
+                "ultimosProductos",
+                service.ultimosProductos());
+
         request.getRequestDispatcher(
-                        "/views/admin/lista-productos.jsp")
-                .forward(request, response);
+                        "/views/admin/dashboard-admin.jsp")
+                .forward(request,response);
+
     }
 }

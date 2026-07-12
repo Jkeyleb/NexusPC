@@ -114,8 +114,9 @@ S/ ${valorInventario}
 <input
 type="text"
 name="buscar"
+value="${param.buscar}"
 class="form-control"
-placeholder="Buscar producto...">
+placeholder="Buscar por nombre o proveedor">
 
 </div>
 
@@ -159,9 +160,7 @@ List<Producto> productos =
 request.getAttribute("productos");
 
 for(Producto p : productos){
-
 %>
-
 <tr>
 
 <td><%=p.getIdProducto()%></td>
@@ -197,6 +196,23 @@ STOCK BAJO
 DISPONIBLE
 
 </span>
+
+<%
+}
+%>
+<%
+if(productos.isEmpty()){
+%>
+
+<tr>
+
+<td colspan="8" class="text-center">
+
+No se encontraron productos.
+
+</td>
+
+</tr>
 
 <%
 }

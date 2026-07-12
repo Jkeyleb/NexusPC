@@ -21,7 +21,9 @@ href="${pageContext.request.contextPath}/assets/css/style.css">
 
     <div class="menu">
 
-        <a href="#">Dashboard</a>
+        <a href="${pageContext.request.contextPath}/dashboard-admin">
+            Dashboard
+        </a>
 
         <a href="${pageContext.request.contextPath}/inventario">
             Inventario
@@ -57,14 +59,122 @@ href="${pageContext.request.contextPath}/assets/css/style.css">
             Bienvenido a NexusPC
         </p>
 
-        <h3>JWT</h3>
+        <div class="container mt-4">
 
-        <textarea rows="8"
-                  cols="90">
+        <h2>Dashboard NexusPC</h2>
 
-        ${sessionScope.jwt}
+        <br>
 
-        </textarea>
+        <div class="row">
+
+        <div class="col-md-4">
+
+        <div class="card shadow">
+
+        <div class="card-body text-center">
+
+        <h6>Total Productos</h6>
+
+        <h2>${totalProductos}</h2>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+        <div class="card shadow">
+
+        <div class="card-body text-center">
+
+        <h6>Stock Bajo</h6>
+
+        <h2 class="text-danger">
+
+        ${stockBajo}
+
+        </h2>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+        <div class="card shadow">
+
+        <div class="card-body text-center">
+
+        <h6>Valor Inventario</h6>
+
+        <h2 class="text-success">
+
+        S/ ${valorInventario}
+
+        </h2>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </div>
+
+        <br>
+
+        <h4>
+
+        Últimos Productos
+
+        </h4>
+
+        <table class="table table-striped">
+
+        <tr>
+
+        <th>ID</th>
+
+        <th>Producto</th>
+
+        <th>Stock</th>
+
+        <th>Precio</th>
+
+        </tr>
+
+        <%@ page import="java.util.List"%>
+        <%@ page import="com.nexuspc.model.Producto"%>
+
+        <%
+
+        List<Producto> lista =
+        (List<Producto>) request.getAttribute("ultimosProductos");
+
+        if (lista != null) {
+
+            for (Producto p : lista) {
+        %>
+
+        <tr>
+            <td><%=p.getIdProducto()%></td>
+            <td><%=p.getNombre()%></td>
+            <td><%=p.getStock()%></td>
+            <td>S/ <%=p.getPrecio()%></td>
+        </tr>
+
+        <%
+            }
+        }
+        %>
+
+        </table>
+
+        </div>
     </div>
 
 </div>

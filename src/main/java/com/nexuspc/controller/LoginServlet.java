@@ -69,8 +69,8 @@ public class LoginServlet extends HttpServlet {
             case "ADMIN":
 
                 response.sendRedirect(
-                        "views/admin/dashboard-admin.jsp"
-                );
+                        request.getContextPath()
+                                + "/dashboard-admin");
 
                 break;
 

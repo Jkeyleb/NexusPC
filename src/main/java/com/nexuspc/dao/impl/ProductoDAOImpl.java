@@ -360,4 +360,91 @@ public class ProductoDAOImpl implements ProductoDAO {
         return 0;
     }
 
+    @Override
+    public List<Producto> buscar(String texto) {
+
+        List<Producto> lista = new ArrayList<>();
+
+        String sql = """
+        SELECT *
+        FROM productos
+        WHERE nombre LIKE ?
+           OR proveedor LIKE ?
+        ORDER BY nombre
+        """;
+
+        try (
+                Connection conn = DBConnection.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)
+        ) {
+
+            String filtro = "%" + texto + "%";
+
+            ps.setString(1, filtro);
+            ps.setString(2, filtro);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Producto p = new Producto();
+
+                p.setIdProducto(rs.getInt("id_producto"));
+                p.setNombre(rs.getString("nombre"));
+                p.setDescripcion(rs.getString("descripcion"));
+                p.setPrecio(rs.getDouble("precio"));
+                p.setStock(rs.getInt("stock"));
+                p.setStockMinimo(rs.getInt("stock_minimo"));
+                p.setProveedor(rs.getString("proveedor"));
+
+                lista.add(p);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public List<Producto> ultimosProductos() {
+
+        List<Producto> lista = new ArrayList<>();
+
+        String sql = """
+            SELECT *
+            FROM productos
+            ORDER BY id_producto DESC
+            LIMIT 5
+            """;
+
+        try (
+                Connection conn = DBConnection.getConnection();
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql)
+        ) {
+
+            while (rs.next()) {
+
+                Producto p = new Producto();
+
+                p.setIdProducto(rs.getInt("id_producto"));
+                p.setNombre(rs.getString("nombre"));
+                p.setDescripcion(rs.getString("descripcion"));
+                p.setPrecio(rs.getDouble("precio"));
+                p.setStock(rs.getInt("stock"));
+                p.setStockMinimo(rs.getInt("stock_minimo"));
+                p.setProveedor(rs.getString("proveedor"));
+
+                lista.add(p);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
+
 }
