@@ -1,53 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-
-<!DOCTYPE html>
-<html>
-<head>
-
-<title>Dashboard Admin</title>
-
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/assets/css/style.css">
-
-</head>
-
-<body>
-
-<div class="sidebar">
-
-    <div class="logo">
-        NexusPC
-    </div>
-
-    <div class="menu">
-
-        <a href="${pageContext.request.contextPath}/dashboard-admin">
-            Dashboard
-        </a>
-
-        <a href="${pageContext.request.contextPath}/inventario">
-            Inventario
-        </a>
-
-        <a href="${pageContext.request.contextPath}/clientes">
-            Clientes
-        </a>
-
-        <a href="#">Ventas</a>
-
-        <a href="#">Garantías</a>
-
-        <a href="#">Usuarios</a>
-
-        <a href="#">Reportes</a>
-
-        <a href="${pageContext.request.contextPath}/logout">
-            Cerrar Sesión
-        </a>
-
-    </div>
-
-</div>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="com.nexuspc.model.Producto"%>
 
 <div class="main">
 

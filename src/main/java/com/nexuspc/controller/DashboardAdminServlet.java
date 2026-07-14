@@ -35,8 +35,12 @@ public class DashboardAdminServlet extends HttpServlet {
                 "ultimosProductos",
                 service.ultimosProductos());
 
+        request.setAttribute(
+                "contenido",
+                "/views/admin/dashboard-admin.jsp");
+
         request.getRequestDispatcher(
-                        "/views/admin/dashboard-admin.jsp")
+                        "/layouts/admin-layout.jsp")
                 .forward(request,response);
 
     }
