@@ -39,4 +39,8 @@ public class ClienteService {
         return dao.buscar(texto);
     }
 
+    public int contarClientes() {
+        return dao.contarClientes();
+    }
+
 }

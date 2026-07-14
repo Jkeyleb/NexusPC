@@ -17,4 +17,6 @@ public interface ClienteDAO {
 
     List<Cliente> buscar(String texto);
 
+    int contarClientes();
+
 }

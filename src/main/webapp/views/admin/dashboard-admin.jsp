@@ -59,7 +59,7 @@
 
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-5">
 
         <div class="card shadow">
 
@@ -78,6 +78,26 @@
         </div>
 
         </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow">
+
+                <div class="card-body text-center">
+
+                    <h6>Total Clientes</h6>
+
+                    <h2 class="text-primary">
+
+                        ${totalClientes}
+
+                    </h2>
+
+                </div>
+
+            </div>
 
         </div>
 

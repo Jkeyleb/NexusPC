@@ -1,7 +1,7 @@
 package com.nexuspc.controller;
 
 import com.nexuspc.service.ProductoService;
-
+import com.nexuspc.service.ClienteService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -32,6 +32,10 @@ public class DashboardAdminServlet extends HttpServlet {
                 service.calcularValorInventario());
 
         request.setAttribute(
+                "totalClientes",
+                clienteService.contarClientes());
+
+        request.setAttribute(
                 "ultimosProductos",
                 service.ultimosProductos());
 
@@ -44,4 +48,7 @@ public class DashboardAdminServlet extends HttpServlet {
                 .forward(request,response);
 
     }
+
+    private final ClienteService clienteService =
+            new ClienteService();
 }
