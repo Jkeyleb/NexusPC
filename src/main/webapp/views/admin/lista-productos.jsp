@@ -2,32 +2,14 @@
 <%@ page import="java.util.List"%>
 <%@ page import="com.nexuspc.model.Producto"%>
 
-<!DOCTYPE html>
-<html>
-<head>
 
-<title>Inventario</title>
-
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/assets/css/style.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet">
-<link rel="stylesheet"
-href="${pageContext.request.contextPath}/assets/css/inventario.css">
-</head>
-
-<body>
-
-<div class="main">
-
-<h1>Inventario NexusPC</h1>
+<h1>Inventario NexusPC</h1>S
 
 <br>
 
-<a href="${pageContext.request.contextPath}/views/admin/inventario.jsp">
-
-Nuevo Producto
-
+<a class="btn btn-primary"
+   href="${pageContext.request.contextPath}/nuevo-producto">
+    Nuevo Producto
 </a>
 
 <br><br>
@@ -249,7 +231,4 @@ Eliminar
 
 </table>
 
-</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>

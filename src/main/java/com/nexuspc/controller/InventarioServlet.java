@@ -46,8 +46,12 @@ public class InventarioServlet extends HttpServlet {
                 "valorInventario",
                 service.calcularValorInventario());
 
+        request.setAttribute(
+                "contenido",
+                "/views/admin/lista-productos.jsp");
+
         request.getRequestDispatcher(
-                        "/views/admin/lista-productos.jsp")
-                .forward(request, response);
+                        "/layouts/admin-layout.jsp")
+                .forward(request,response);
     }
 }
