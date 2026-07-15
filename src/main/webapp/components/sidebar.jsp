@@ -33,7 +33,7 @@
     </a>
 
     <a class="btn btn-dark w-100 text-start mb-2"
-       href="#">
+       href="${pageContext.request.contextPath}/nueva-venta">
 
         🛒 Ventas
 
@@ -42,7 +42,7 @@
     <a class="btn btn-dark w-100 text-start mb-2"
        href="#">
 
-        🛡 Garantías
+        🛡 Reportes
 
     </a>
 
