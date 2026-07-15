@@ -23,9 +23,13 @@ public class ClienteServlet extends HttpServlet {
                 "clientes",
                 service.listar());
 
+        request.setAttribute(
+                "contenido",
+                "/views/admin/lista-clientes.jsp");
+
         request.getRequestDispatcher(
-                        "/views/admin/lista-clientes.jsp")
-                .forward(request, response);
+                        "/layouts/admin-layout.jsp")
+                .forward(request,response);
     }
 
     @Override

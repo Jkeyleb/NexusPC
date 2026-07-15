@@ -42,13 +42,6 @@ body{
     padding:30px;
 }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
-
 .navbar{
     border-radius:12px;
     margin-bottom:20px;
@@ -69,3 +62,27 @@ body{
     border-radius:12px;
     box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
+
+/* ===== Dashboard ===== */
+
+.dashboard-cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+.dashboard-cards .card{
+    flex:1;
+    min-width:220px;
+}
+
+.table-card{
+    margin-top:25px;
+}
+
+.main{
+    margin-left:250px;
+    padding:35px;
+}
+

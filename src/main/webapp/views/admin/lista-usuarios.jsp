@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ page import="java.util.List"%>
-<%@ page import="com.nexuspc.model.Usuario"%>
+<%@ page import="com.nexuspc.model.User"%>
 
 <div class="card">
 
@@ -25,6 +25,7 @@
             <th>Nombre</th>
             <th>Usuario</th>
             <th>Rol</th>
+            <th>Estado</th>
             <th>Acciones</th>
 
         </tr>
@@ -34,12 +35,12 @@
         <tbody>
 
         <%
-            List<Usuario> lista =
-                    (List<Usuario>) request.getAttribute("usuarios");
+            List<User> lista =
+            (List<User>) request.getAttribute("usuarios");
 
             if (lista != null) {
 
-                for (Usuario u : lista) {
+               for (User u : lista) {
         %>
 
         <tr>
@@ -50,16 +51,51 @@
 
             <td><%=u.getUsuario()%></td>
 
-            <td><%=u.getRol()%></td>
+            <td><%=u.getRole().getNombre()%></td>
 
             <td>
 
-                <a class="btn btn-warning btn-sm">
-                    Editar
-                </a>
+            <%
+            if("ACTIVO".equals(u.getEstado())){
+            %>
 
-                <a class="btn btn-danger btn-sm">
-                    Eliminar
+            <span class="badge bg-success">
+
+            ACTIVO
+
+            </span>
+
+            <%
+            }else{
+            %>
+
+            <span class="badge bg-secondary">
+
+            INACTIVO
+
+            </span>
+
+            <%
+            }
+            %>
+
+            </td>
+
+            <td>
+
+                <a
+                class="btn btn-warning btn-sm"
+                href="${pageContext.request.contextPath}/editar-usuario?id=<%=u.getIdUsuario()%>">
+
+                    Editar
+
+                <a
+                class="btn btn-danger btn-sm"
+                href="${pageContext.request.contextPath}/deshabilitar-usuario?id=<%=u.getIdUsuario()%>"
+                onclick="return confirm('¿Desea deshabilitar este usuario?')">
+
+                Deshabilitar
+
                 </a>
 
             </td>

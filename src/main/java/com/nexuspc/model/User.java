@@ -7,7 +7,7 @@ public class User {
     private String usuario;
     private String password;
     private Role role;
-
+    private String estado;
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -46,5 +46,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

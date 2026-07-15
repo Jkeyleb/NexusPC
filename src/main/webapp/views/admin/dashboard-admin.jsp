@@ -5,7 +5,7 @@
 
 <div class="main">
 
-    <div class="card">
+    <div class="content-card">
 
         <h1>Panel Administrador</h1>
 
@@ -21,93 +21,41 @@
 
         <br>
 
-        <div class="row">
-
-        <div class="col-md-4">
-
-        <div class="card shadow">
-
-        <div class="card-body text-center">
-
-        <h6>Total Productos</h6>
-
-        <h2>${totalProductos}</h2>
-
-        </div>
-
-        </div>
-
-        </div>
-
-        <div class="col-md-4">
-
-        <div class="card shadow">
-
-        <div class="card-body text-center">
-
-        <h6>Stock Bajo</h6>
-
-        <h2 class="text-danger">
-
-        ${stockBajo}
-
-        </h2>
-
-        </div>
-
-        </div>
-
-        </div>
-
-        <div class="col-md-5">
-
-        <div class="card shadow">
-
-        <div class="card-body text-center">
-
-        <h6>Valor Inventario</h6>
-
-        <h2 class="text-success">
-
-        S/ ${valorInventario}
-
-        </h2>
-
-        </div>
-
-        </div>
-
-        </div>
-
-        </div>
-
-        <div class="col-md-3">
+        <div class="dashboard-cards">
 
             <div class="card shadow">
-
                 <div class="card-body text-center">
-
-                    <h6>Total Clientes</h6>
-
-                    <h2 class="text-primary">
-
-                        ${totalClientes}
-
-                    </h2>
-
+                    <h6>Total Productos</h6>
+                    <h2>${totalProductos}</h2>
                 </div>
+            </div>
 
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h6>Stock Bajo</h6>
+                    <h2 class="text-danger">${stockBajo}</h2>
+                </div>
+            </div>
+
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h6>Valor Inventario</h6>
+                    <h2 class="text-success">S/ ${valorInventario}</h2>
+                </div>
+            </div>
+
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h6>Total Clientes</h6>
+                    <h2 class="text-primary">${totalClientes}</h2>
+                </div>
             </div>
 
         </div>
 
         <br>
 
-        <h4>
-
-        Últimos Productos
-
-        </h4>
+        <h4>Últimos Productos</h4>
 
         <table class="table table-striped">
 
