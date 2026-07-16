@@ -67,6 +67,8 @@ public class LoginServlet extends HttpServlet {
         switch (rol) {
 
             case "ADMIN":
+            case "VENDEDOR":
+            case "ALMACEN":
 
                 response.sendRedirect(
                         request.getContextPath()
@@ -74,27 +76,13 @@ public class LoginServlet extends HttpServlet {
 
                 break;
 
-            case "VENDEDOR":
-
-                response.sendRedirect(
-                        "views/vendedor/dashboard-vendedor.jsp"
-                );
-
-                break;
-
-            case "ALMACEN":
-
-                response.sendRedirect(
-                        "views/almacen/dashboard-almacen.jsp"
-                );
-
-                break;
-
             default:
 
                 response.sendRedirect(
-                        "views/auth/login.jsp"
-                );
+                        request.getContextPath()
+                                + "/views/auth/login.jsp");
+
+                break;
         }
     }
 }

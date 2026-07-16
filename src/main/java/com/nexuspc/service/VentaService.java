@@ -1,9 +1,9 @@
 package com.nexuspc.service;
-
+import java.time.LocalDate;
 import com.nexuspc.dao.VentaDAO;
 import com.nexuspc.dao.impl.VentaDAOImpl;
 import com.nexuspc.model.Venta;
-
+import com.nexuspc.model.DetalleVenta;
 import java.util.List;
 
 public class VentaService {
@@ -28,5 +28,18 @@ public class VentaService {
         return dao.buscarPorId(id);
 
     }
+
+    public List<DetalleVenta> listarDetalles(int idVenta){
+
+        return dao.listarDetalles(idVenta);
+
+    }
+
+    public List<Venta> buscarPorFecha(LocalDate fecha){
+
+        return dao.buscarPorFecha(fecha);
+
+    }
+
 
 }

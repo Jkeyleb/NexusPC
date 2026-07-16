@@ -38,6 +38,7 @@ Nuevo Cliente
 <th>Tipo</th>
 <th>Teléfono</th>
 <th>Email</th>
+<th>Acciones</th>
 
 </tr>
 
@@ -63,6 +64,25 @@ for(Cliente c : lista){
 <td><%=c.getEmail()%></td>
 
 </tr>
+
+<td>
+
+<a class="btn btn-warning btn-sm"
+   href="${pageContext.request.contextPath}/editar-cliente?id=<%=c.getIdCliente()%>">
+
+Editar
+
+</a>
+
+<a class="btn btn-danger btn-sm"
+   href="${pageContext.request.contextPath}/eliminar-cliente?id=<%=c.getIdCliente()%>"
+   onclick="return confirm('¿Desea deshabilitar este cliente?');">
+
+Deshabilitar
+
+</a>
+
+</td>
 
 <%
 

@@ -87,6 +87,10 @@ public class AgregarProductoVentaServlet extends HttpServlet {
                 "carrito",
                 carrito);
 
+        session.setAttribute(
+                "idClienteSeleccionado",
+                request.getParameter("idCliente"));
+
         response.sendRedirect(
                 request.getContextPath()
                         + "/nueva-venta");

@@ -48,7 +48,12 @@ public class ClienteDAOImpl implements ClienteDAO{
 
         List<Cliente> lista = new ArrayList<>();
 
-        String sql = "SELECT * FROM clientes ORDER BY id_cliente DESC";
+        String sql = """
+SELECT *
+FROM clientes
+WHERE activo = TRUE
+ORDER BY id_cliente DESC
+""";
 
         try(
                 Connection conn = DBConnection.getConnection();
@@ -83,7 +88,12 @@ public class ClienteDAOImpl implements ClienteDAO{
     @Override
     public Cliente buscarPorId(int id){
 
-        String sql="SELECT * FROM clientes WHERE id_cliente=?";
+        String sql="""
+SELECT *
+FROM clientes
+WHERE id_cliente=?
+AND activo=TRUE
+""";
 
         try(
                 Connection conn=DBConnection.getConnection();
@@ -156,11 +166,15 @@ public class ClienteDAOImpl implements ClienteDAO{
     @Override
     public boolean eliminar(int id){
 
-        String sql="DELETE FROM clientes WHERE id_cliente=?";
+        String sql = """
+    UPDATE clientes
+    SET activo = FALSE
+    WHERE id_cliente = ?
+    """;
 
         try(
-                Connection conn=DBConnection.getConnection();
-                PreparedStatement ps=conn.prepareStatement(sql)
+                Connection conn = DBConnection.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)
         ){
 
             ps.setInt(1,id);
@@ -183,11 +197,14 @@ public class ClienteDAOImpl implements ClienteDAO{
         List<Cliente> lista = new ArrayList<>();
 
         String sql = """
-            SELECT *
-            FROM clientes
-            WHERE nombre LIKE ?
-            OR email LIKE ?
-            ORDER BY id_cliente DESC
+                SELECT *
+                FROM clientes
+                WHERE activo=TRUE
+                AND (
+                    nombre LIKE ?
+                    OR email LIKE ?
+                )
+                ORDER BY id_cliente DESC
             """;
 
         try(

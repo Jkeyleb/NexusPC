@@ -19,12 +19,24 @@
 
 <%
 List<Cliente> clientes =
-(List<Cliente>)request.getAttribute("clientes");
+        (List<Cliente>) request.getAttribute("clientes");
+
+String clienteSeleccionado =
+        (String) request.getAttribute("idClienteSeleccionado");
 
 for(Cliente c : clientes){
+
+    String selected = "";
+
+    if(clienteSeleccionado != null &&
+       clienteSeleccionado.equals(String.valueOf(c.getIdCliente()))){
+
+        selected = "selected";
+
+    }
 %>
 
-<option value="<%=c.getIdCliente()%>">
+<option value="<%=c.getIdCliente()%>" <%=selected%>>
 
 <%=c.getNombre()%>
 
@@ -190,6 +202,25 @@ S/ <%=String.format("%.2f",total)%>
 
 </h3>
 
+<hr>
+
+<h5>Resumen</h5>
+
+<p>
+
+Productos:
+<%= carrito == null ? 0 : carrito.size() %>
+
+</p>
+
+<p>
+
+Fecha:
+
+<%= java.time.LocalDate.now() %>
+
+</p>
+
 </div>
 
 <form
@@ -199,7 +230,7 @@ method="post">
 <input
 type="hidden"
 name="idCliente"
-value="<%=request.getParameter("idCliente")==null?"1":request.getParameter("idCliente")%>">
+value="${idClienteSeleccionado}">
 
 <button
 class="btn btn-primary btn-lg mt-3">

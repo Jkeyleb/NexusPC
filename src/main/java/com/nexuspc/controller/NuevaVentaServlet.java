@@ -35,6 +35,13 @@ public class NuevaVentaServlet extends HttpServlet {
                 "contenido",
                 "/views/admin/nueva-venta.jsp");
 
+        HttpSession session =
+                request.getSession();
+
+        request.setAttribute(
+                "idClienteSeleccionado",
+                session.getAttribute("idClienteSeleccionado"));
+
         request.getRequestDispatcher(
                         "/layouts/admin-layout.jsp")
                 .forward(request, response);
