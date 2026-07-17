@@ -187,7 +187,7 @@ Se recomienda agregar imágenes de:
 
 # Autor
 
-Caleb Silva
+Caleb Silva, 
 Vilcapoma Vicente R. Gustavo  
 
 Proyecto desarrollado para el curso de Desarrollo de Aplicaciones Web.
