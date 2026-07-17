@@ -1,59 +1,129 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
-    <title>Registro</title>
+
+    <title>Registro - NexusPC</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/assets/css/login.css">
+
 </head>
-<body>
 
-<h2>Registro NexusPC</h2>
+<body class="login-body">
 
-<form action="${pageContext.request.contextPath}/register"
-      method="post">
+<div class="overlay">
 
-    <input type="text"
-           name="nombre"
-           placeholder="Nombre"
-           required>
+    <div class="login-card">
 
-    <br><br>
+        <img
+                src="${pageContext.request.contextPath}/assets/img/nexus.png"
+                class="logo">
 
-    <input type="text"
-           name="usuario"
-           placeholder="Usuario"
-           required>
+        <h2>Crear Cuenta</h2>
 
-    <br><br>
+        <p class="text-muted">
 
-    <input type="password"
-           name="password"
-           placeholder="Contraseña"
-           required>
+            Registro de usuarios NexusPC
 
-    <br><br>
+        </p>
 
-    <select name="rol">
+        <form action="${pageContext.request.contextPath}/register"
+              method="post">
 
-        <option value="1">
-            ADMIN
-        </option>
+            <div class="mb-3">
 
-        <option value="2">
-            VENDEDOR
-        </option>
+                <input
+                        type="text"
+                        name="nombre"
+                        class="form-control"
+                        placeholder="Nombre completo"
+                        required>
 
-        <option value="3">
-            ALMACEN
-        </option>
+            </div>
 
-    </select>
+            <div class="mb-3">
 
-    <br><br>
+                <input
+                        type="text"
+                        name="usuario"
+                        class="form-control"
+                        placeholder="Usuario"
+                        required>
 
-    <button type="submit">
-        Registrar
-    </button>
+            </div>
 
-</form>
+            <div class="mb-3">
+
+                <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Contraseña"
+                        required>
+
+            </div>
+
+            <div class="mb-4">
+
+                <select
+                        name="rol"
+                        class="form-select">
+
+                    <option value="1">
+
+                        Administrador
+
+                    </option>
+
+                    <option value="2">
+
+                        Vendedor
+
+                    </option>
+
+                    <option value="3">
+
+                        Almacén
+
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button
+                    class="btn btn-success w-100 btn-login"
+                    type="submit">
+
+                Registrarse
+
+            </button>
+
+        </form>
+
+        <div class="text-center mt-4">
+
+            ¿Ya tienes una cuenta?
+
+            <a href="login.jsp">
+
+                Iniciar sesión
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
+
 </html>

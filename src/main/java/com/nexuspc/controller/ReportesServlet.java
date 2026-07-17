@@ -6,8 +6,8 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet("/nuevo-producto")
-public class NuevoProductoServlet extends HttpServlet {
+@WebServlet("/reportes")
+public class ReportesServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request,
@@ -16,11 +16,12 @@ public class NuevoProductoServlet extends HttpServlet {
 
         request.setAttribute(
                 "contenido",
-                "/views/admin/nuevo-producto.jsp");
+                "/views/admin/reportes.jsp");
 
         request.getRequestDispatcher(
                         "/layouts/admin-layout.jsp")
                 .forward(request, response);
 
     }
+
 }

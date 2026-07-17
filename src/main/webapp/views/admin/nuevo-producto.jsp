@@ -1,37 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%@ page import="com.nexuspc.model.Producto"%>
-
-<%
-Producto p = (Producto) request.getAttribute("producto");
-%>
 
 <div class="content-card">
 
-    <h2 class="mb-4">✏️ Editar Producto</h2>
+    <h2 class="mb-4">📦 Registrar Producto</h2>
 
-    <form action="${pageContext.request.contextPath}/editar-producto"
+    <form action="${pageContext.request.contextPath}/producto"
           method="post">
-
-        <input
-                type="hidden"
-                name="id"
-                value="<%=p.getIdProducto()%>">
 
         <div class="row">
 
             <div class="col-md-6 mb-3">
 
                 <label class="form-label">
-
                     Nombre
-
                 </label>
 
                 <input
                         type="text"
                         class="form-control"
                         name="nombre"
-                        value="<%=p.getNombre()%>"
+                        placeholder="Ingrese el nombre del producto"
                         required>
 
             </div>
@@ -39,16 +27,14 @@ Producto p = (Producto) request.getAttribute("producto");
             <div class="col-md-6 mb-3">
 
                 <label class="form-label">
-
                     Proveedor
-
                 </label>
 
                 <input
                         type="text"
                         class="form-control"
                         name="proveedor"
-                        value="<%=p.getProveedor()%>"
+                        placeholder="Ingrese el proveedor"
                         required>
 
             </div>
@@ -58,15 +44,14 @@ Producto p = (Producto) request.getAttribute("producto");
         <div class="mb-3">
 
             <label class="form-label">
-
                 Descripción
-
             </label>
 
             <textarea
                     class="form-control"
+                    name="descripcion"
                     rows="3"
-                    name="descripcion"><%=p.getDescripcion()%></textarea>
+                    placeholder="Descripción del producto"></textarea>
 
         </div>
 
@@ -75,9 +60,7 @@ Producto p = (Producto) request.getAttribute("producto");
             <div class="col-md-4 mb-3">
 
                 <label class="form-label">
-
                     Precio (S/)
-
                 </label>
 
                 <input
@@ -85,7 +68,7 @@ Producto p = (Producto) request.getAttribute("producto");
                         step="0.01"
                         class="form-control"
                         name="precio"
-                        value="<%=p.getPrecio()%>"
+                        placeholder="0.00"
                         required>
 
             </div>
@@ -93,16 +76,14 @@ Producto p = (Producto) request.getAttribute("producto");
             <div class="col-md-4 mb-3">
 
                 <label class="form-label">
-
                     Stock
-
                 </label>
 
                 <input
                         type="number"
                         class="form-control"
                         name="stock"
-                        value="<%=p.getStock()%>"
+                        placeholder="0"
                         required>
 
             </div>
@@ -110,16 +91,14 @@ Producto p = (Producto) request.getAttribute("producto");
             <div class="col-md-4 mb-3">
 
                 <label class="form-label">
-
                     Stock Mínimo
-
                 </label>
 
                 <input
                         type="number"
                         class="form-control"
                         name="stockMinimo"
-                        value="<%=p.getStockMinimo()%>"
+                        placeholder="0"
                         required>
 
             </div>
@@ -130,9 +109,9 @@ Producto p = (Producto) request.getAttribute("producto");
 
         <button
                 type="submit"
-                class="btn btn-warning">
+                class="btn btn-success">
 
-            ✏️ Actualizar Producto
+            💾 Guardar Producto
 
         </button>
 

@@ -31,6 +31,23 @@ public class AgregarProductoVentaServlet extends HttpServlet {
         Producto producto =
                 productoService.buscarPorId(idProducto);
 
+        if (cantidad > producto.getStock()) {
+
+            HttpSession session = request.getSession();
+
+            session.setAttribute(
+                    "errorVenta",
+                    "Stock insuficiente. Solo hay "
+                            + producto.getStock()
+                            + " unidades disponibles.");
+
+            response.sendRedirect(
+                    request.getContextPath()
+                            + "/nueva-venta");
+
+            return;
+        }
+
         DetalleVenta detalle =
                 new DetalleVenta();
 

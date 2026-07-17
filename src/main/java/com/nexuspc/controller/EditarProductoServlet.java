@@ -33,8 +33,12 @@ public class EditarProductoServlet extends HttpServlet {
                 "producto",
                 producto);
 
+        request.setAttribute(
+                "contenido",
+                "/views/admin/editar-producto.jsp");
+
         request.getRequestDispatcher(
-                        "/views/admin/editar-producto.jsp")
+                        "/layouts/admin-layout.jsp")
                 .forward(
                         request,
                         response);
@@ -79,6 +83,6 @@ public class EditarProductoServlet extends HttpServlet {
         response.sendRedirect(
                 request.getContextPath()
                         +
-                        "/inventario");
+                        "/nuevo-producto");
     }
 }

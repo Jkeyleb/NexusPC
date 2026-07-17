@@ -429,4 +429,79 @@ WHERE id_producto = ?
 
     }
 
+    @Override
+    public List<Venta> listarPorFechas(
+            String desde,
+            String hasta) {
+
+        List<Venta> lista = new ArrayList<>();
+
+        String sql = """
+        SELECT
+            v.id_venta,
+            v.fecha,
+            v.total,
+            c.nombre AS cliente,
+            u.nombre AS vendedor
+        FROM ventas v
+        INNER JOIN clientes c
+            ON v.id_cliente = c.id_cliente
+        INNER JOIN usuarios u
+            ON v.id_usuario = u.id_usuario
+        WHERE DATE(v.fecha)
+              BETWEEN ? AND ?
+        ORDER BY v.fecha
+        """;
+
+        try(
+                Connection cn = DBConnection.getConnection();
+                PreparedStatement ps =
+                        cn.prepareStatement(sql)
+        ){
+
+            ps.setString(1, desde);
+            ps.setString(2, hasta);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                Venta venta = new Venta();
+
+                venta.setIdVenta(
+                        rs.getInt("id_venta"));
+
+                venta.setFecha(
+                        rs.getTimestamp("fecha")
+                                .toLocalDateTime());
+
+                venta.setTotal(
+                        rs.getDouble("total"));
+
+                Cliente cliente = new Cliente();
+                cliente.setNombre(
+                        rs.getString("cliente"));
+
+                venta.setCliente(cliente);
+
+                User usuario = new User();
+                usuario.setNombre(
+                        rs.getString("vendedor"));
+
+                venta.setUsuario(usuario);
+
+                lista.add(venta);
+
+            }
+
+        }catch(Exception e){
+
+            e.printStackTrace();
+
+        }
+
+        return lista;
+
+    }
+
 }

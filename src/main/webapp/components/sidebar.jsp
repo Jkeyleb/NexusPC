@@ -97,7 +97,7 @@ if(usuario != null &&
     %>
 
     <a class="btn btn-dark w-100 text-start mb-2"
-       href="#">
+       href="${pageContext.request.contextPath}/reportes">
 
         📈 Reportes
 

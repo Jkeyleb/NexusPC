@@ -34,10 +34,14 @@ public class LoginServlet extends HttpServlet {
 
         if (user == null) {
 
-            response.sendError(
-                    HttpServletResponse.SC_UNAUTHORIZED,
-                    "Credenciales inválidas"
+            request.getSession().setAttribute(
+                    "error",
+                    "Usuario o contraseña incorrectos."
             );
+
+            response.sendRedirect(
+                    request.getContextPath()
+                            + "/views/auth/login.jsp");
 
             return;
         }

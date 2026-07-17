@@ -29,7 +29,8 @@ public class DashboardAdminServlet extends HttpServlet {
 
         request.setAttribute(
                 "valorInventario",
-                service.calcularValorInventario());
+                String.format("%.2f",
+                        service.calcularValorInventario()));
 
         request.setAttribute(
                 "totalClientes",
@@ -38,6 +39,10 @@ public class DashboardAdminServlet extends HttpServlet {
         request.setAttribute(
                 "ultimosProductos",
                 service.ultimosProductos());
+
+        request.setAttribute(
+                "fechaActual",
+                java.time.LocalDate.now());
 
         request.setAttribute(
                 "contenido",

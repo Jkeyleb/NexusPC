@@ -16,4 +16,6 @@ public interface VentaDAO {
 
     List<Venta> buscarPorFecha(java.time.LocalDate fecha);
 
+    List<Venta> listarPorFechas(String desde, String hasta);
+
 }

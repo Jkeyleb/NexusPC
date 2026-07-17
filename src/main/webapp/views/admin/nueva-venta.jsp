@@ -9,6 +9,24 @@
 
 <br>
 
+<%
+String error =
+        (String) session.getAttribute("errorVenta");
+
+if(error != null){
+%>
+
+<div class="alert alert-danger">
+
+    <%=error%>
+
+</div>
+
+<%
+session.removeAttribute("errorVenta");
+}
+%>
+
 <form action="${pageContext.request.contextPath}/agregar-producto-venta"
       method="post">
 <div class="mb-3">

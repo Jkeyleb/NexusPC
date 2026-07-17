@@ -1,111 +1,117 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 
-<!DOCTYPE html>
+<div class="content-card">
 
-<html>
+    <h2 class="mb-4">
 
-<head>
+        👥 Registrar Cliente
 
-<title>Nuevo Cliente</title>
+    </h2>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet">
+    <form
+            method="post"
+            action="${pageContext.request.contextPath}/clientes">
 
-</head>
+        <div class="row">
 
-<body class="bg-light">
+            <div class="col-md-6 mb-3">
 
-<div class="container mt-5">
+                <label class="form-label">
 
-<div class="card shadow">
+                    Nombre
 
-<div class="card-body">
+                </label>
 
-<h3>Registrar Cliente</h3>
+                <input
+                        type="text"
+                        name="nombre"
+                        class="form-control"
+                        required>
 
-<form
-method="post"
-action="${pageContext.request.contextPath}/clientes">
+            </div>
 
-<div class="mb-3">
+            <div class="col-md-6 mb-3">
 
-<label>Nombre</label>
+                <label class="form-label">
 
-<input
-name="nombre"
-class="form-control"
-required>
+                    Tipo
+
+                </label>
+
+                <select
+                        name="tipo"
+                        class="form-select">
+
+                    <option value="PERSONA">
+
+                        PERSONA
+
+                    </option>
+
+                    <option value="EMPRESA">
+
+                        EMPRESA
+
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+
+                <label class="form-label">
+
+                    Teléfono
+
+                </label>
+
+                <input
+                        type="text"
+                        name="telefono"
+                        class="form-control">
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <label class="form-label">
+
+                    Email
+
+                </label>
+
+                <input
+                        type="email"
+                        name="email"
+                        class="form-control">
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <button
+                type="submit"
+                class="btn btn-success">
+
+            💾 Guardar Cliente
+
+        </button>
+
+        <a
+                href="${pageContext.request.contextPath}/clientes"
+                class="btn btn-secondary ms-2">
+
+            ↩ Cancelar
+
+        </a>
+
+    </form>
 
 </div>
-
-<div class="mb-3">
-
-<label>Tipo</label>
-
-<select
-name="tipo"
-class="form-select">
-
-<option value="PERSONA">
-
-PERSONA
-
-</option>
-
-<option value="EMPRESA">
-
-EMPRESA
-
-</option>
-
-</select>
-
-</div>
-
-<div class="mb-3">
-
-<label>Teléfono</label>
-
-<input
-name="telefono"
-class="form-control">
-
-</div>
-
-<div class="mb-3">
-
-<label>Email</label>
-
-<input
-type="email"
-name="email"
-class="form-control">
-
-</div>
-
-<button
-class="btn btn-success">
-
-Guardar Cliente
-
-</button>
-
-<a
-class="btn btn-secondary"
-href="${pageContext.request.contextPath}/clientes">
-
-Cancelar
-
-</a>
-
-</form>
-
-</div>
-
-</div>
-
-</div>
-
-</body>
-
-</html>

@@ -41,5 +41,15 @@ public class VentaService {
 
     }
 
+    public List<Venta> listarPorFechas(
+            String desde,
+            String hasta){
+
+        return dao.listarPorFechas(
+                desde,
+                hasta);
+
+    }
+
 
 }
