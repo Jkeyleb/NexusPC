@@ -64,4 +64,8 @@ public class ProductoService {
         return dao.ultimosProductos();
 
     }
+
+    public List<Producto> listarStockBajo() {
+        return dao.listarStockBajo();
+    }
 }

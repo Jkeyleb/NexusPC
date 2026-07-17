@@ -47,9 +47,9 @@
                     </p>
 
                     <a class="btn btn-warning"
-                       href="#">
+                       href="${pageContext.request.contextPath}/reporte-stock">
 
-                        Próximamente
+                        Abrir
 
                     </a>
 
@@ -75,6 +75,7 @@
                        href="#">
 
                         Próximamente
+
 
                     </a>
 

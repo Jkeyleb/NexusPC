@@ -447,4 +447,41 @@ public class ProductoDAOImpl implements ProductoDAO {
         return lista;
     }
 
+    @Override
+    public List<Producto> listarStockBajo() {
+
+        List<Producto> lista = new ArrayList<>();
+
+        String sql =
+                "SELECT * FROM productos " +
+                        "WHERE stock <= stock_minimo " +
+                        "AND estado = 1 " +
+                        "ORDER BY stock ASC";
+
+        try (Connection cn = DBConnection.getConnection();
+             PreparedStatement ps = cn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+
+                Producto p = new Producto();
+
+                p.setIdProducto(rs.getInt("id_producto"));
+                p.setNombre(rs.getString("nombre"));
+                p.setDescripcion(rs.getString("descripcion"));
+                p.setPrecio(rs.getDouble("precio"));
+                p.setStock(rs.getInt("stock"));
+                p.setStockMinimo(rs.getInt("stock_minimo"));
+                p.setProveedor(rs.getString("proveedor"));
+
+                lista.add(p);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
+
 }

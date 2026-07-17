@@ -24,4 +24,6 @@ public interface ProductoDAO {
     int contarStockBajo();
 
     double calcularValorInventario();
+
+    List<Producto> listarStockBajo();
 }
