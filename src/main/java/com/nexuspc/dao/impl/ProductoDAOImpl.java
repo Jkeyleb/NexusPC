@@ -13,6 +13,13 @@ public class ProductoDAOImpl implements ProductoDAO {
     @Override
     public boolean guardar(Producto producto) {
 
+        if (producto.getNombre() == null || producto.getNombre().isBlank()
+                || producto.getStock() < 0) {
+
+            System.out.println("Producto invalido: nombre vacio o stock negativo.");
+            return false;
+        }
+
         String sql = """
                 INSERT INTO productos
                 (
