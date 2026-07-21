@@ -13,7 +13,7 @@ User usuario = (User) session.getAttribute("user");
 
         <h1 class="fw-bold">
 
-            ¡Bienvenido,
+            ¡Bienvenido USUARIO,
             <%=usuario.getNombre()%>!
 
         </h1>
