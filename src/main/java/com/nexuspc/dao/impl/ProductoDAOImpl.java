@@ -452,15 +452,18 @@ public class ProductoDAOImpl implements ProductoDAO {
 
         List<Producto> lista = new ArrayList<>();
 
-        String sql =
-                "SELECT * FROM productos " +
-                        "WHERE stock <= stock_minimo " +
-                        "AND estado = 1 " +
-                        "ORDER BY stock ASC";
+        String sql = """
+            SELECT *
+            FROM productos
+            WHERE stock <= stock_minimo
+            ORDER BY stock ASC
+            """;
 
-        try (Connection cn = DBConnection.getConnection();
-             PreparedStatement ps = cn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+        try (
+                Connection cn = DBConnection.getConnection();
+                PreparedStatement ps = cn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()
+        ) {
 
             while (rs.next()) {
 
