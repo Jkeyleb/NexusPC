@@ -25,6 +25,20 @@ public class LoginServlet extends HttpServlet {
 
         String password =
                 request.getParameter("password");
+        if (usuario == null || usuario.isBlank()
+                || password == null || password.isBlank()) {
+
+            request.getSession().setAttribute(
+                    "error",
+                    "Debe ingresar usuario y contraseña."
+            );
+
+            response.sendRedirect(
+                    request.getContextPath()
+                            + "/views/auth/login.jsp");
+
+            return;
+        }
 
         User user =
                 authService.login(

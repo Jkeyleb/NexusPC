@@ -1,0 +1,1 @@
+"HU-S1-014 validada: dashboard carga correctamente con inventario vacío y con datos."
