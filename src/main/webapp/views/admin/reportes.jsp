@@ -34,6 +34,7 @@
 
         </div>
 
+
         <div class="col-md-6 mb-4">
 
             <div class="card shadow">
@@ -59,6 +60,7 @@
 
         </div>
 
+    <!--
         <div class="col-md-6 mb-4">
 
             <div class="card shadow">
@@ -84,7 +86,10 @@
             </div>
 
         </div>
+    -->
 
+
+    <!--
         <div class="col-md-6 mb-4">
 
             <div class="card shadow">
@@ -109,6 +114,7 @@
             </div>
 
         </div>
+    -->
 
     </div>
 
