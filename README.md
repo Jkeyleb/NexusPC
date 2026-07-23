@@ -142,7 +142,7 @@ Usuario:
 admin
 
 Contraseña:
-admin123
+123
 ```
 
 > Cambiar las credenciales según los datos registrados en la base de datos.
